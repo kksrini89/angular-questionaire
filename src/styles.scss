@@ -1,0 +1,88 @@
+/* Add application styles & imports to this file! */
+$main-color: #00a39b;
+$main-color-dark: #004854;
+$comp-color: #c25e60;
+$comp-color-dark: #872f47;
+$text-color: #ffead1;
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+  font-size: 16px;
+}
+
+body {
+  margin: 0;
+  color: $text-color;
+  background-color: $main-color;
+}
+
+.quiz {
+  display: flex;
+  height: 100%;
+
+  &__wrapper {
+    position: relative;
+    display: flex;
+    width: 40vw;
+    min-width: 320px;
+    margin: auto;
+  }
+
+  &__card {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    min-height: 320px;
+    margin: auto;
+    padding: 1rem;
+    text-align: center;
+    color: $text-color;
+    border-radius: 1rem;
+    background-color: $main-color-dark;
+    box-shadow: 0 0.5rem 2rem rgba(0, 0, 0, 0.5);
+
+    &[aria-active='true'] {
+      display: flex;
+      animation: revealQuizQuestion 0.5s cubic-bezier(0, 0, 0, 1);
+    }
+  }
+
+  &__button {
+    display: inline-block;
+    margin: 0.25rem;
+    padding: 0.25rem 1rem;
+    font-size: 1rem;
+    line-height: 1;
+    color: $text-color;
+    border: 1px solid #{$text-color};
+    border-radius: 0.5rem;
+    background-color: $comp-color;
+    box-shadow: 0 2px 0 2px #{$text-color};
+
+    &:hover,
+    &:focus {
+      background-color: $comp-color-dark;
+    }
+
+    &:active {
+      box-shadow: 0 0 0 2px #{$text-color};
+      transform: translateY(2px);
+    }
+  }
+
+  &__results {
+    display: inline-block;
+  }
+}
+
+@keyframes revealQuizQuestion {
+  from {
+    opacity: 0;
+    transform: translateY(50%);
+  }
+}
