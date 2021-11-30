@@ -174,20 +174,7 @@ export class AppComponent implements AfterViewInit {
     });
   }
 
-  quiz() {
-    this.init = function () {
-      document.addEventListener(
-        'click',
-        function (e) {
-          // quizAction(e);
-          // console.log(answers);
-        }.bind(this)
-      );
-    };
-  }
-
   ngAfterViewInit(): void {
-    // var quiz = new Quiz();
     this.init();
   }
 }
